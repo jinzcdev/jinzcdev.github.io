@@ -1,0 +1,617 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>PAT（甲级）2019年春季考试</title>
+  <style>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body {
+  margin: 0;
+  font-family: -apple-system, "PingFang SC", "Lantinghei SC", "Helvetica Neue", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+pre,
+code,
+kbd,
+samp {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 1em;
+}
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+  -ms-overflow-style: scrollbar;
+}
+.ques-view *:first-child {
+  margin-top: 0;
+}
+.container {
+  max-width: 940px;
+  margin: auto;
+}
+.problemType {
+  display: flex;
+  font-size: 18px;
+  margin: 24px 0 16px;
+}
+.problemType > span:first-child {
+  flex-grow: 1;
+  font-weight: bold;
+}
+.problemType > span:last-child {
+  margin-left: 20px;
+}
+.title {
+  padding: 16px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+.header > div {
+  width: calc(100% / 3);
+  display: inline-flex;
+}
+.header > div > span:first-child {
+  font-weight: bold;
+  width: 56px;
+}
+.header > div > span:first-child + span {
+  margin-left: 8px;
+}
+.container {
+  padding: 32px 0 24px;
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.15);
+}
+.container .problem {
+  display: flex;
+}
+.container .problem > :first-child {
+  margin-right: 12px;
+  white-space: nowrap;
+}
+.container .problem > :nth-child(2) {
+  overflow-x: hidden;
+}
+.container .judgeResponse table {
+  width: 100%;
+}
+.container .judgeResponse th,
+.container .judgeResponse td {
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  text-align: center;
+}
+.container .shortField {
+  display: flex;
+}
+.container .shortField > :first-child {
+  width: 80px;
+}
+.container .shortField > :nth-child(2) a {
+  padding: 2px 12px;
+  border: 1px solid hsl(212, 89%, 53%);
+  transition: all 0.3s;
+  text-decoration: none;
+}
+.container .shortField > :nth-child(2) a:hover {
+  background-color: hsl(35, 90%, 50%);
+  color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 100%);
+}
+.container .longField > :first-child ~ * {
+  padding: 16px;
+  border: 1px dashed hsla(0, 0%, 0%, 0.15);
+}
+.container .shortField,
+.container .longField {
+  margin-top: 8px;
+}
+.container .shortField > :first-child,
+.container .longField > :first-child {
+  position: relative;
+}
+.container .shortField > :first-child::before,
+.container .longField > :first-child::before {
+  content: ' ';
+  position: absolute;
+  display: inline-block;
+  width: 8px;
+  height: 100%;
+  left: -12px;
+  top: 0;
+  background-color: hsla(0, 0%, 0%, 0.4);
+}
+.ques-view {
+  line-height: 1.5;
+  /* font-family: 'Times New Roman'; */
+}
+.ques-view p {
+  margin: 0.5em 0;
+}
+.ques-view h1,
+.ques-view h2,
+.ques-view h3,
+.ques-view h4,
+.ques-view h5,
+.ques-view h6 {
+  margin: 0.8em 0;
+}
+.ques-view img {
+  max-width: 100%;
+}
+.ques-view .ques-list {
+  padding-left: 50px;
+}
+.ques-view .ques-list li {
+  position: relative;
+  list-style-type: upper-alpha;
+}
+.ques-view .ques-list input {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  margin-top: -7px;
+}
+.ques-view textarea {
+  border-radius: 2px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: 100px;
+}
+.ques-view code {
+  font-size: 12px;
+  background: #f7f7f7;
+  border-radius: 3px;
+  border: 1px solid #e4e4e4;
+  padding: 0 3px;
+  color: #e74c3c;
+  margin: 0 2px;
+  font-family: 'YaHei consolas Hybrid', 'Consolas', monospace;
+}
+.ques-view pre {
+  padding: 6px 12px;
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  word-break: break-all;
+}
+.ques-view pre code {
+  background: none;
+  border: none;
+  color: #333;
+  padding: 0;
+  margin: 0;
+}
+.ques-view hr {
+  border: none;
+  border-top: 1px solid #ccc;
+}
+.ques-view blockquote {
+  margin: 0.5em 0;
+  padding: 2px 14px;
+  font-size: 12px;
+  background: #f4f4f4;
+  border-left: 4px solid #ddd;
+}
+.ques-view table {
+  margin: 0 auto;
+}
+.ques-view table th,
+.ques-view table td {
+  border: 1px solid #ddd;
+  padding: 2px 4px;
+  font-size: 12px;
+}
+.ques-view .ques-score {
+  color: #999;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+/* katex */
+.katex-mathml {
+  display: none;
+}
+</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.7.1/dist/katex.min.css" integrity="sha256-tkzDFSl16wERzhCWg0ge2tON2+D6Qe9iEaJqM4ZGd4E=" crossorigin="anonymous">
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Zhichao's Blog" type="application/atom+xml">
+</head>
+<body>
+
+<div><div class="container" data-reactroot=""><div class="title">PAT（甲级）2019年春季考试</div><div class="header"><div><span>开始时间</span><span>1/1/2016, 08:00:00</span></div><div><span>结束时间</span><span>1/18/2038, 08:00:00</span></div><div><span>答题时长</span><span>180分钟</span></div><div><span>考生</span><span>charjindev</span></div><div><span>得分</span><span>100</span></div><div><span>总分</span><span>100</span></div></div><hr/><div><div class="problemType"><span>编程题</span><span>总分：100</span><span>得分：100</span></div><div class="container"><div class="problem"><div>7-1</div><div><div>Sexy Primes</div><div><div class="ques-view"><p>Sexy primes are pairs of primes of the form (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mo>+</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">p+6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">p</span><span class="mbin">+</span><span class="mord mathrm">6</span></span></span></span>), so-named since &quot;sex&quot; is the Latin word for &quot;six&quot;. (Quoted from <a target="_blank" rel="noopener noreferrer nofollow" href="http://mathworld.wolfram.com/SexyPrimes.html">http://mathworld.wolfram.com/SexyPrimes.html</a>)</p>
+<p>Now given an integer, you are supposed to tell if it is a sexy prime.</p>
+<h3 id="input-specification-">Input Specification:</h3>
+<p>Each input file contains one test case.  Each case gives a positive integer <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>8</mn></msup></mrow><annotation encoding="application/x-tex">\le 10^8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">8</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span>).</p>
+<h3 id="output-specification-">Output Specification:</h3>
+<p>For each case, print in a line <code>Yes</code> if <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> is a sexy prime, then print in the next line the other sexy prime paired with <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> (if the answer is not unique, output the smaller number).  Or if <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> is not a sexy prime, print <code>No</code> instead, then print in the next line the smallest sexy prime which is larger than <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>.</p>
+<h3 id="sample-input-1-">Sample Input 1:</h3>
+<pre><code class="lang-in">47
+</code></pre>
+<h3 id="sample-output-1-">Sample Output 1:</h3>
+<pre><code class="lang-out">Yes
+41
+</code></pre>
+<h3 id="sample-input-2-">Sample Input 2:</h3>
+<pre><code class="lang-in">21
+</code></pre>
+<h3 id="sample-output-2-">Sample Output 2:</h3>
+<pre><code class="lang-out">No
+23
+</code></pre>
+</div>
+</div></div></div><div class="shortField"><div>编译器</div><div>GXX</div></div><div class="longField"><div>代码</div><pre>#include &lt;cstdio&gt;
+bool isprime(int x) {
+    if (x &lt;= 1) return false;
+    for (int i = 2; i * i &lt;= x; i++)
+        if (x % i == 0) return false;
+    return true;
+}
+int main() {
+    int n;
+    scanf("%d", &n);
+    if (isprime(n) && isprime(n - 6)) printf("Yes\n%d", n - 6);
+    else if (isprime(n) && isprime(n + 6)) printf("Yes\n%d", n + 6);
+    else {
+        while (true) {
+            n++;
+            if (isprime(n) && (isprime(n - 6) || isprime(n + 6))) break;
+        }
+        printf("No\n%d", n);
+    }
+    return 0;
+}</pre></div><div class="longField judgeResponse"><div><span>评测结果：</span><span style="color:#ff3b30">答案正确</span><span>（20 分）</span></div><table><thead><tr><th>测试点</th><th>结果</th><th>得分</th><th>耗时</th><th>内存</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>6</td><td>3 ms</td><td>352 KB</td></tr><tr><td>1</td><td>答案正确</td><td>6</td><td>4 ms</td><td>392 KB</td></tr><tr><td>2</td><td>答案正确</td><td>2</td><td>4 ms</td><td>384 KB</td></tr><tr><td>3</td><td>答案正确</td><td>2</td><td>3 ms</td><td>424 KB</td></tr><tr><td>4</td><td>答案正确</td><td>3</td><td>4 ms</td><td>384 KB</td></tr><tr><td>5</td><td>答案正确</td><td>1</td><td>2 ms</td><td>356 KB</td></tr></tbody></table><pre>a.cpp: In function ‘int main()’:
+a.cpp:17:24: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+     if (ans = issexy(n)) {
+                        ^
+a.cpp:16:20: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf(&quot;%d&quot;, &amp;n);
+                    ^</pre></div></div><div class="container"><div class="problem"><div>7-2</div><div><div>Anniversary</div><div><div class="ques-view"><p>Zhejiang University is about to celebrate her 122th anniversary in 2019.  To prepare for the celebration, the alumni association （校友会） has gathered the ID&#39;s of all her alumni.  Now your job is to write a program to count the number of alumni among all the people who come to the celebration.</p>
+<h3 id="input-specification-">Input Specification:</h3>
+<p>Each input file contains one test case. For each case, the first part is about the information of all the alumni.  Given in the first line is a positive integer <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">\le 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span>).  Then <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> lines follow, each contains an ID number of an alumnus.  An ID number is a string of 18 digits or the letter <code>X</code>.  It is guaranteed that all the ID&#39;s are distinct.</p>
+<p>The next part gives the information of all the people who come to the celebration.  Again given in the first line is a positive integer <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">\le 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span>).  Then <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span> lines follow, each contains an ID number of a guest.  It is guaranteed that all the ID&#39;s are distinct.</p>
+<h3 id="output-specification-">Output Specification:</h3>
+<p>First print in a line the number of alumni among all the people who come to the celebration.  Then in the second line, print the ID of the oldest alumnus -- notice that the 7th - 14th digits of the ID gives one&#39;s birth date.  If no alumnus comes, output the ID of the oldest guest instead.  It is guaranteed that such an alumnus or guest is unique.</p>
+<h3 id="sample-input-">Sample Input:</h3>
+<pre><code class="lang-in">5
+372928196906118710
+610481197806202213
+440684198612150417
+13072819571002001X
+150702193604190912
+6
+530125197901260019
+150702193604190912
+220221196701020034
+610481197806202213
+440684198612150417
+370205198709275042
+</code></pre>
+<h3 id="sample-output-">Sample Output:</h3>
+<pre><code class="lang-out">3
+150702193604190912
+</code></pre>
+</div>
+</div></div></div><div class="shortField"><div>编译器</div><div>GXX</div></div><div class="longField"><div>代码</div><pre>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main() {
+    int n, m, cnt = 0;
+    string oldestAlumni = "xxxxxx99999999", oldestGuest = "xxxxxx99999999", id;
+    scanf("%d", &n);
+    map&lt;string, bool&gt; isalumni;
+    for (int i = 0; i &lt; n; i++) {
+        cin >> id;
+        isalumni[id] = true;
+    }
+    scanf("%d", &m);
+    for (int i = 0; i &lt; m; i++) {
+        cin >> id;
+        if (id.substr(6, 8) &lt; oldestGuest.substr(6)) oldestGuest = id;
+        if (isalumni[id]) {
+            if (id.substr(6, 8) &lt; oldestAlumni.substr(6)) oldestAlumni = id;
+            cnt++;
+        }
+    }
+    printf("%d\n%s", cnt, cnt > 0 ? oldestAlumni.c_str() : oldestGuest.c_str());
+    return 0;
+}</pre></div><div class="longField judgeResponse"><div><span>评测结果：</span><span style="color:#ff3b30">答案正确</span><span>（25 分）</span></div><table><thead><tr><th>测试点</th><th>结果</th><th>得分</th><th>耗时</th><th>内存</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>13</td><td>4 ms</td><td>420 KB</td></tr><tr><td>1</td><td>答案正确</td><td>2</td><td>2 ms</td><td>384 KB</td></tr><tr><td>2</td><td>答案正确</td><td>1</td><td>3 ms</td><td>384 KB</td></tr><tr><td>3</td><td>答案正确</td><td>4</td><td>245 ms</td><td>22272 KB</td></tr><tr><td>4</td><td>答案正确</td><td>5</td><td>223 ms</td><td>22144 KB</td></tr></tbody></table><pre>a.cpp: In function ‘int main()’:
+a.cpp:5:20: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf(&quot;%d&quot;, &amp;n);
+                    ^
+a.cpp:12:20: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf(&quot;%d&quot;, &amp;m);
+                    ^</pre></div></div><div class="container"><div class="problem"><div>7-3</div><div><div>Telefraud Detection</div><div><div class="ques-view"><p>Telefraud（电信诈骗） remains a common and persistent problem in our society.  In some cases, unsuspecting victims lose their entire life savings.  To stop this crime, you are supposed to write a program to detect those suspects from a huge amount of phone call records.</p>
+<p>A person must be detected as a suspect if he/she makes more than <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> short phone calls to <strong>different</strong> people everyday, but no more than 20% of these people would call back.  And more, if two suspects are calling each other, we say they might belong to the same gang.  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span> makes a <strong>short</strong> phone call to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> means that the total duration of the calls from <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">A</span></span></span></span> to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05017em;">B</span></span></span></span> is no more than 5 minutes.</p>
+<h3 id="input-specification-">Input Specification:</h3>
+<p>Each input file contains one test case. For each case, the first line gives 3 positive integers <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>5</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">\le 500</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>, the threshold（阈值） of the amount of short phone calls), <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">\le 10^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span>, the number of different phone numbers), and <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">\le 10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.950078em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">5</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span>, the number of phone call records).  Then <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span> lines of one day&#39;s records are given, each in the format:</p>
+<pre><code>caller receiver duration
+</code></pre><p>where <code>caller</code> and <code>receiver</code> are numbered from 1 to <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>, and <code>duration</code> is no more than 1440 minutes in a day.</p>
+<h3 id="output-specification-">Output Specification:</h3>
+<p>Print in each line all the detected suspects in a gang, in ascending order of their numbers.  The gangs are printed in ascending order of their first members.  The numbers in a line must be separated by exactly 1 space, and there must be no extra space at the beginning or the end of the line.</p>
+<p>If no one is detected, output <code>None</code> instead.</p>
+<h3 id="sample-input-1-">Sample Input 1:</h3>
+<pre><code class="lang-in">5 15 31
+1 4 2
+1 5 2
+1 5 4
+1 7 5
+1 8 3
+1 9 1
+1 6 5
+1 15 2
+1 15 5
+3 2 2
+3 5 15
+3 13 1
+3 12 1
+3 14 1
+3 10 2
+3 11 5
+5 2 1
+5 3 10
+5 1 1
+5 7 2
+5 6 1
+5 13 4
+5 15 1
+11 10 5
+12 14 1
+6 1 1
+6 9 2
+6 10 5
+6 11 2
+6 12 1
+6 13 1
+</code></pre>
+<h3 id="sample-output-1-">Sample Output 1:</h3>
+<pre><code class="lang-out">3 5
+6
+</code></pre>
+<p><strong>Note:</strong> In sample 1, although <code>1</code> had 9 records, but there were 7 distinct receivers, among which <code>5</code> and <code>15</code> both had conversations lasted more than 5 minutes in total.  Hence <code>1</code> had made 5 short phone calls and didn&#39;t exceed the threshold 5, and therefore is not a suspect.</p>
+<h3 id="sample-input-2-">Sample Input 2:</h3>
+<pre><code class="lang-in">5 7 8
+1 2 1
+1 3 1
+1 4 1
+1 5 1
+1 6 1
+1 7 1
+2 1 1
+3 1 1
+</code></pre>
+<h3 id="sample-output-2-">Sample Output 2:</h3>
+<pre><code class="lang-out">None
+</code></pre>
+</div>
+</div></div></div><div class="shortField"><div>编译器</div><div>GXX</div></div><div class="longField"><div>代码</div><pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int father[1010];
+int findFather(int x) {
+    return x == father[x] ? x : father[x] = findFather(father[x]);
+}
+void uni(int a, int b) {
+    int faA = findFather(a);
+    int faB = findFather(b);
+    if (faA &lt; faB) father[faB] = faA;
+    if (faA > faB) father[faA] = faB;
+}
+int main() {
+    for (int i = 0; i &lt; 1010; i++) father[i] = i;
+    int k, n, m, a, b, time;
+    scanf("%d%d%d", &k, &n, &m);
+    vector&lt;map&lt;int, int&gt; &gt; record(n + 1);
+    for (int i = 0; i &lt; m; i++) {
+        scanf("%d%d%d", &a, &b, &time);
+        record[a][b] += time;
+    }
+    vector&lt;int&gt; suspect;
+    for (int i = 1; i &lt;= n; i++) {
+        if (record[i].size() &lt;= k) continue;
+        int callto = 0, callback = 0;
+        for (auto it : record[i]) {
+            if (it.second &lt;= 5) {
+                callto++;
+                if (record[it.first].find(i) != record[it.first].end()) callback++;
+            }
+        }
+        if (callto > k && callback * 1.0 / callto &lt;= 0.2) suspect.push_back(i);
+    }
+    if (suspect.size() == 0) {
+        printf("None\n");
+        return 0;
+    }
+    for (int i = 0; i &lt; suspect.size() - 1; i++) {
+        for (int j = i + 1; j &lt; suspect.size(); j++) {
+            a = suspect[i]; b = suspect[j];
+            if (record[a][b] > 0 && record[b][a] > 0) uni(a, b);
+        }
+    }
+    map&lt;int, vector&lt;int&gt; &gt; mp;
+    for (auto it : suspect) mp[findFather(it)].push_back(it);
+    for (auto it : mp) {
+        vector&lt;int&gt; gang = move(it.second);
+        sort(gang.begin(), gang.end());
+        for (int i = 0; i &lt; gang.size(); i++) {
+            if (i != 0) printf(" ");
+            printf("%d", gang[i]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+</pre></div><div class="longField judgeResponse"><div><span>评测结果：</span><span style="color:#ff3b30">答案正确</span><span>（25 分）</span></div><table><thead><tr><th>测试点</th><th>结果</th><th>得分</th><th>耗时</th><th>内存</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>13</td><td>4 ms</td><td>424 KB</td></tr><tr><td>1</td><td>答案正确</td><td>1</td><td>4 ms</td><td>548 KB</td></tr><tr><td>2</td><td>答案正确</td><td>6</td><td>4 ms</td><td>344 KB</td></tr><tr><td>3</td><td>答案正确</td><td>1</td><td>4 ms</td><td>384 KB</td></tr><tr><td>4</td><td>答案正确</td><td>4</td><td>79 ms</td><td>4608 KB</td></tr></tbody></table><pre>a.cpp: In function ‘int main()’:
+a.cpp:27:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         if (record[i].size() &lt;= k) continue;
+             ~~~~~~~~~~~~~~~~~^~~~
+a.cpp:43:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+     for (int i = 0; i &lt; suspect.size() - 1; i++) {
+                     ~~^~~~~~~~~~~~~~~~~~~~
+a.cpp:44:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int j = i + 1; j &lt; suspect.size(); j++) {
+                             ~~^~~~~~~~~~~~~~~~
+a.cpp:59:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i &lt; gang.size(); i++) {
+                         ~~^~~~~~~~~~~~~
+a.cpp:19:32: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf(&quot;%d%d%d&quot;, &amp;k, &amp;n, &amp;m);
+                                ^
+a.cpp:22:39: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+         scanf(&quot;%d%d%d&quot;, &amp;a, &amp;b, &amp;time);
+                                       ^</pre></div></div><div class="container"><div class="problem"><div>7-4</div><div><div>Structure of a Binary Tree</div><div><div class="ques-view"><p>Suppose that all the keys in a binary tree are distinct positive integers. Given the postorder and inorder traversal sequences, a binary tree can be uniquely determined.</p>
+<p>Now given a sequence of statements about the structure of the resulting tree, you are supposed to tell if they are correct or not.  A statment is one of the following:</p>
+<ul>
+<li>A is the root</li>
+<li>A and B are siblings</li>
+<li>A is the parent of B</li>
+<li>A is the left child of B</li>
+<li>A is the right child of B</li>
+<li>A and B are on the same level</li>
+<li>It is a full tree</li>
+</ul>
+<p>Note:</p>
+<ul>
+<li>Two nodes are <strong>on the same level</strong>, means that they have the same depth.</li>
+<li>A <strong>full binary tree</strong> is a tree in which every node other than the leaves has two children.</li>
+</ul>
+<h3 id="input-specification-">Input Specification:</h3>
+<p>Each input file contains one test case. For each case, the first line gives a positive integer <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>3</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">\le 30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">3</span><span class="mord mathrm">0</span></span></span></span>), the total number of nodes in the binary tree. The second line gives the postorder sequence and the third line gives the inorder sequence. All the numbers in a line are no more than <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">10^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mord"><span class="mord mathrm">0</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">3</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">​</span></span>​</span></span></span></span></span></span></span> and are separated by a space.</p>
+<p>Then another positive integer <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo><mn>3</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">\le 30</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base textstyle uncramped"><span class="mrel">≤</span><span class="mord mathrm">3</span><span class="mord mathrm">0</span></span></span></span>) is given, followed by <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">M</span></span></span></span> lines of statements.  It is guaranteed that both <code>A</code> and <code>B</code> in the statements are in the tree.</p>
+<h3 id="output-specification-">Output Specification:</h3>
+<p>For each statement, print in a line <code>Yes</code> if it is correct, or <code>No</code> if not.</p>
+<h3 id="sample-input-">Sample Input:</h3>
+<pre><code class="lang-in">9
+16 7 11 32 28 2 23 8 15
+16 23 7 32 11 2 28 15 8
+7
+15 is the root
+8 and 2 are siblings
+32 is the parent of 11
+23 is the left child of 16
+28 is the right child of 2
+7 and 11 are on the same level
+It is a full tree
+</code></pre>
+<h3 id="sample-output-">Sample Output:</h3>
+<pre><code class="lang-out">Yes
+No
+Yes
+No
+Yes
+Yes
+Yes
+</code></pre>
+</div>
+</div></div></div><div class="shortField"><div>编译器</div><div>GXX</div></div><div class="longField"><div>代码</div><pre>
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+vector&lt;int&gt; post, in;
+int tree[1010], pos[1010], level[1010], len = -1;
+int create(int postl, int postr, int inl, int inr, int i, int depth) {
+    if (postl > postr) return 0;
+    len = max(len, i);
+    level[post[postr]] = depth;
+    tree[i] = post[postr];
+    int k = inl;
+    while (k &lt;= inr && in[k] != post[postr]) k++;
+    int numLeft = k - inl;
+    tree[i * 2] = create(postl, postl + numLeft - 1, inl, k - 1, i * 2, depth + 1);
+    tree[i * 2 + 1] = create(postl + numLeft, postr - 1, k + 1, inr, i * 2 + 1, depth + 1);
+    return post[postr];
+}
+int main() {
+    int n, m;
+    scanf("%d", &n);
+    post.resize(n);
+    in.resize(n);
+    for (int i = 0; i &lt; n; i++) scanf("%d", &post[i]);
+    for (int i = 0; i &lt; n; i++) scanf("%d", &in[i]);
+    create(0, n - 1, 0, n - 1, 1, 1);
+    bool isfull = true;
+    for (int i = 1; i &lt;= len; i++) {
+        if (tree[i] == 0) continue;
+        pos[tree[i]] = i;
+        if ((tree[i * 2] != 0 || tree[i * 2 + 1] != 0) &&
+            (tree[i * 2] * tree[i * 2 + 1] == 0)) {
+            isfull = false;
+        }
+    }
+    scanf("%d", &m);
+    getchar();
+    while (m--) {
+        string s;
+        bool ans;
+        getline(cin, s);
+        if (s[0] == 'I') ans = isfull;
+        else {
+            int a = stoi(s.substr(0, s.find_first_of(' ')));
+            if (s[s.length() - 1] == 't') ans = pos[a] == 1;
+            else if (isdigit(s[s.length() - 1])) {
+                int b = stoi(s.substr(s.find_last_of(' ') + 1));
+                if (s.find("pa") != string::npos) ans = pos[a] == pos[b] / 2;
+                else if (s.find("le") != string::npos) ans = pos[a] == pos[b] * 2;
+                else ans = pos[a] == pos[b] * 2 + 1;
+            } else {
+                s.erase(0, s.find_first_of(' '));
+                while (!isdigit(s[0])) s.erase(s.begin());
+                int b = stoi(s.substr(0, s.find_first_of(' ')));
+                if (s[s.length() - 1] == 's') ans = pos[a] / 2 == pos[b] / 2;
+                else ans = level[a] == level[b];
+            }
+        }
+        printf("%s\n", ans ? "Yes" : "No");
+    }
+    return 0;
+}
+</pre></div><div class="longField judgeResponse"><div><span>评测结果：</span><span style="color:#ff3b30">答案正确</span><span>（30 分）</span></div><table><thead><tr><th>测试点</th><th>结果</th><th>得分</th><th>耗时</th><th>内存</th></tr></thead><tbody><tr><td>0</td><td>答案正确</td><td>15</td><td>3 ms</td><td>296 KB</td></tr><tr><td>1</td><td>答案正确</td><td>5</td><td>4 ms</td><td>384 KB</td></tr><tr><td>2</td><td>答案正确</td><td>5</td><td>4 ms</td><td>424 KB</td></tr><tr><td>3</td><td>答案正确</td><td>2</td><td>5 ms</td><td>424 KB</td></tr><tr><td>4</td><td>答案正确</td><td>3</td><td>4 ms</td><td>384 KB</td></tr></tbody></table><pre>a.cpp: In function ‘int main()’:
+a.cpp:25:20: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf(&quot;%d&quot;, &amp;n);
+                    ^
+a.cpp:26:54: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     for (int i = 0; i &lt; n; i++) scanf(&quot;%d&quot;, &amp;post[i]);
+                                                      ^
+a.cpp:27:52: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     for (int i = 0; i &lt; n; i++) scanf(&quot;%d&quot;, &amp;in[i]);
+                                                    ^
+a.cpp:28:20: warning: ignoring return value of ‘int scanf(const char*, ...)’, declared with attribute warn_unused_result [-Wunused-result]
+     scanf(&quot;%d&quot;, &amp;m);
+                    ^
+a.cpp:58:15: warning: ‘ans’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+         printf(&quot;%s\n&quot;, ans ? &quot;Yes&quot; : &quot;No&quot;);
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~</pre></div></div></div></div></div>
+
+</body>
+</html>

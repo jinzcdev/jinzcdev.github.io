@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>Markdown数学公式语法手册（转载） | Zhichao's Blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask="" sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-158590818-1','auto');ga('send','pageview');
+</script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = 'https://hm.baidu.com/hm.js?' + 'c1bb31022c448b72f7350c6d43905276';
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+  </script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+  })();</script><meta name="generator" content="Hexo 4.2.1"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Markdown数学公式语法手册（转载）</h1><a id="logo" href="/.">Zhichao's Blog</a><p class="description">Zhichao Jin</p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/tags/"><i class="fa fa-tags"> 标签</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/history/"><i class="fa fa-history"> 历史</i></a><a href="/guestbook/"><i class="fa fa-comments"> 留言</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Markdown数学公式语法手册（转载）</h1><div class="post-meta">Feb 7, 2020<span> | </span><span class="category"><a href="/categories/%E8%BD%AF%E6%8A%80%E8%83%BD/">软技能</a></span><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> 阅读</span></span><span class="post-time"><span class="post-meta-item-text"> | </span><span class="post-meta-item-icon"><i class="fa fa-keyboard-o"></i><span class="post-count"> 1.6k</span><span class="post-meta-item-text"> 字</span></span></span><span class="post-time"> | <span class="post-meta-item-icon"><i class="fa fa-hourglass-half"></i><span class="post-count"> 7</span><span class="post-meta-item-text"> 分钟</span></span></span></div><a class="disqus-comment-count" href="/2020/02/07/note-markdown-mathformula/#vcomment"><span class="valine-comment-count" data-xid="/2020/02/07/note-markdown-mathformula/"></span><span> 条评论</span></a><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#行内与独行"><span class="toc-number">1.</span> <span class="toc-text">行内与独行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上标、下标与组合"><span class="toc-number">2.</span> <span class="toc-text">上标、下标与组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#汉字、字体与格式"><span class="toc-number">3.</span> <span class="toc-text">汉字、字体与格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#占位符"><span class="toc-number">4.</span> <span class="toc-text">占位符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定界符与组合"><span class="toc-number">5.</span> <span class="toc-text">定界符与组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四则运算"><span class="toc-number">6.</span> <span class="toc-text">四则运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级运算"><span class="toc-number">7.</span> <span class="toc-text">高级运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#逻辑运算"><span class="toc-number">8.</span> <span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合运算"><span class="toc-number">9.</span> <span class="toc-text">集合运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数学符号"><span class="toc-number">10.</span> <span class="toc-text">数学符号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希腊字母"><span class="toc-number">11.</span> <span class="toc-text">希腊字母</span></a></li></ol></div></div><div class="post-content"><ul>
+<li><a href="http://latex.codecogs.com/eqneditor/editor.php" target="_blank" rel="noopener">在线Markdown数学公式生成</a></li>
+</ul>
+<h2 id="行内与独行"><a href="#行内与独行" class="headerlink" title="行内与独行"></a>行内与独行</h2><ol>
+<li>行内公式：将公式插入到本行内，符号：<code>$公式内容$</code>，如：$xyz$</li>
+<li>独行公式：将公式插入到新的一行内，并且居中，符号：<code>$$公式内容$$</code>，如：$$xyz$$</li>
+</ol>
+<h2 id="上标、下标与组合"><a href="#上标、下标与组合" class="headerlink" title="上标、下标与组合"></a>上标、下标与组合</h2><ol>
+<li>上标符号，符号：<code>^</code>，如：$x^4$</li>
+<li>下标符号，符号：<code>_</code>，如：$x_1$</li>
+</ol>
+<h2 id="汉字、字体与格式"><a href="#汉字、字体与格式" class="headerlink" title="汉字、字体与格式"></a>汉字、字体与格式</h2><ol>
+<li>汉字形式，符号：<code>\mbox{}</code>，如：$V_{\mbox{初始}}$</li>
+<li>字体控制，符号：<code>\displaystyle</code>，如：$\displaystyle \frac{x+y}{y+z}$</li>
+<li>下划线符号，符号：<code>\underline</code>，如：$\underline{x+y}$</li>
+<li>标签，符号<code>\tag{数字}</code>，如：$\tag{11}$</li>
+<li>上大括号，符号：<code>\overbrace{算式}</code>，如：$\overbrace{a+b+c+d}^{2.0}$</li>
+<li>下大括号，符号：<code>\underbrace{算式}</code>，如：$a+\underbrace{b+c}_{1.0}+d$</li>
+<li>上位符号，符号：<code>\stacrel{上位符号}{基位符号}</code>，如：$\vec{x}\stackrel{\mathrm{def}}{=}{x_1,\dots,x_n}$</li>
+</ol>
+<h2 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h2><ol>
+<li>两个quad空格，符号：<code>\qquad</code>，如：$x \qquad y$</li>
+<li>quad空格，符号：<code>\quad</code>，如：$x \quad y$</li>
+<li>大空格，符号<code>\</code>，如：$x \  y$</li>
+<li>中空格，符号<code>\:</code>，如：$x : y$</li>
+<li>小空格，符号<code>\,</code>，如：$x , y$</li>
+<li>没有空格，符号``，如：$xy$</li>
+<li>紧贴，符号<code>\!</code>，如：$x ! y$</li>
+</ol>
+<h2 id="定界符与组合"><a href="#定界符与组合" class="headerlink" title="定界符与组合"></a>定界符与组合</h2><ol>
+<li>括号，符号：<code>（）\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)</code>，如：$（）\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)$</li>
+<li>中括号，符号：<code>[]</code>，如：$[x+y]$</li>
+<li>大括号，符号：<code>\{ \}</code>，如：${x+y}$</li>
+<li>自适应括号，符号：<code>\left \right</code>，如：$\left(x\right)$，$\left(x{yz}\right)$</li>
+<li>组合公式，符号：<code>{上位公式 \choose 下位公式}</code>，如：${n+1 \choose k}={n \choose k}+{n \choose k-1}$</li>
+<li>组合公式，符号：<code>{上位公式 \atop 下位公式}</code>，如：$\sum_{k_0,k_1,\ldots&gt;0 \atop k_0+k_1+\cdots=n}A_{k_0}A_{k_1}\cdots$</li>
+</ol>
+<h2 id="四则运算"><a href="#四则运算" class="headerlink" title="四则运算"></a>四则运算</h2><ol>
+<li>加法运算，符号：<code>+</code>，如：$x+y=z$</li>
+<li>减法运算，符号：<code>-</code>，如：$x-y=z$</li>
+<li>加减运算，符号：<code>\pm</code>，如：$x \pm y=z$</li>
+<li>减甲运算，符号：<code>\mp</code>，如：$x \mp y=z$</li>
+<li>乘法运算，符号：<code>\times</code>，如：$x \times y=z$</li>
+<li>点乘运算，符号：<code>\cdot</code>，如：$x \cdot y=z$</li>
+<li>星乘运算，符号：<code>\ast</code>，如：$x \ast y=z$</li>
+<li>除法运算，符号：<code>\div</code>，如：$x \div y=z$</li>
+<li>斜法运算，符号：<code>/</code>，如：$x/y=z$</li>
+<li>分式表示，符号：<code>\frac{分子}{分母}</code>，如：$\frac{x+y}{y+z}$</li>
+<li>分式表示，符号：<code>{分子} \voer {分母}</code>，如：${x+y} \over {y+z}$</li>
+<li>绝对值表示，符号：<code>||</code>，如：$|x+y|$</li>
+</ol>
+<h2 id="高级运算"><a href="#高级运算" class="headerlink" title="高级运算"></a>高级运算</h2><ol>
+<li><p>平均数运算，符号：<code>\overline{算式}</code>，如：$\overline{xyz}$</p>
+</li>
+<li><p>开二次方运算，符号：<code>\sqrt</code>，如：$\sqrt x$</p>
+</li>
+<li><p>开方运算，符号：<code>\sqrt[开方数]{被开方数}</code>，如：$\sqrt[3]{x+y}$</p>
+</li>
+<li><p>对数运算，符号：<code>\log</code>，如：$\log(x)$</p>
+</li>
+<li><p>极限运算，符号：<code>\lim</code>，如：$\lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+</li>
+<li><p>极限运算，符号：<code>\displaystyle \lim</code>，如：$\displaystyle \lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+</li>
+<li><p>求和运算，符号：<code>\sum</code>，如：$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+</li>
+<li><p>求和运算，符号：<code>\displaystyle \sum</code>，如：$\displaystyle \sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+</li>
+<li><p>积分运算，符号：<code>\int</code>，如：$\int^{\infty}_{0}{xdx}$</p>
+</li>
+<li><p>积分运算，符号：<code>\displaystyle \int</code>，如：$\displaystyle \int^{\infty}_{0}{xdx}$</p>
+</li>
+<li><p>微分运算，符号：<code>\partial</code>，如：$\frac{\partial x}{\partial y}$</p>
+</li>
+<li><p>矩阵表示，符号：<code>\begin{matrix} \end{matrix}</code>，如：（显示有点问题）<br>$$<br>\left[<br>\begin{matrix}<br>1 &amp;2 &amp;\cdots &amp;4                   \<br>5 &amp;6 &amp;\cdots &amp;8                   \<br>\vdots &amp;\vdots &amp;\ddots &amp;\vdots    \<br>13 &amp;14 &amp;\cdots &amp;16                \<br>\end{matrix}<br>\right]<br>$$</p>
+</li>
+</ol>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><ol>
+<li>等于运算，符号：<code>=</code>，如：$x+y=z$</li>
+<li>大于运算，符号：<code>&gt;</code>，如：$x+y&gt;z$</li>
+<li>小于运算，符号：<code>&lt;</code>，如：$x+y&lt;z$</li>
+<li>大于等于运算，符号：<code>\geq</code>，如：$x+y \geq z$</li>
+<li>小于等于运算，符号：<code>\leq</code>，如：$x+y \leq z$</li>
+<li>不等于运算，符号：<code>\neq</code>，如：$x+y \neq z$</li>
+<li>不大于等于运算，符号：<code>\ngeq</code>，如：$x+y \ngeq z$</li>
+<li>不大于等于运算，符号：<code>\not\geq</code>，如：$x+y \not\geq z$</li>
+<li>不小于等于运算，符号：<code>\nleq</code>，如：$x+y \nleq z$</li>
+<li>不小于等于运算，符号：<code>\not\leq</code>，如：$x+y \not\leq z$</li>
+<li>约等于运算，符号：<code>\approx</code>，如：$x+y \approx z$</li>
+<li>恒定等于运算，符号：<code>\equiv</code>，如：$x+y \equiv z$</li>
+</ol>
+<h2 id="集合运算"><a href="#集合运算" class="headerlink" title="集合运算"></a>集合运算</h2><ol>
+<li>属于运算，符号：<code>\in</code>，如：$x \in y$</li>
+<li>不属于运算，符号：<code>\notin</code>，如：$x \notin y$</li>
+<li>不属于运算，符号：<code>\not\in</code>，如：$x \not\in y$</li>
+<li>子集运算，符号：<code>\subset</code>，如：$x \subset y$</li>
+<li>子集运算，符号：<code>\supset</code>，如：$x \supset y$</li>
+<li>真子集运算，符号：<code>\subseteq</code>，如：$x \subseteq y$</li>
+<li>非真子集运算，符号：<code>\subsetneq</code>，如：$x \subsetneq y$</li>
+<li>真子集运算，符号：<code>\supseteq</code>，如：$x \supseteq y$</li>
+<li>非真子集运算，符号：<code>\supsetneq</code>，如：$x \supsetneq y$</li>
+<li>非子集运算，符号：<code>\not\subset</code>，如：$x \not\subset y$</li>
+<li>非子集运算，符号：<code>\not\supset</code>，如：$x \not\supset y$</li>
+<li>并集运算，符号：<code>\cup</code>，如：$x \cup y$</li>
+<li>交集运算，符号：<code>\cap</code>，如：$x \cap y$</li>
+<li>差集运算，符号：<code>\setminus</code>，如：$x \setminus y$</li>
+<li>同或运算，符号：<code>\bigodot</code>，如：$x \bigodot y$</li>
+<li>同与运算，符号：<code>\bigotimes</code>，如：$x \bigotimes y$</li>
+<li>实数集合，符号：<code>\mathbb{R}</code>，如：<code>\mathbb{R}</code></li>
+<li>自然数集合，符号：<code>\mathbb{Z}</code>，如：<code>\mathbb{Z}</code></li>
+<li>空集，符号：<code>\emptyset</code>，如：$\emptyset$</li>
+</ol>
+<h2 id="数学符号"><a href="#数学符号" class="headerlink" title="数学符号"></a>数学符号</h2><ol>
+<li>无穷，符号：<code>\infty</code>，如：$\infty$</li>
+<li>虚数，符号：<code>\imath</code>，如：$\imath$</li>
+<li>虚数，符号：<code>\jmath</code>，如：$\jmath$</li>
+<li>数学符号，符号<code>\hat{a}</code>，如：$\hat{a}$</li>
+<li>数学符号，符号<code>\check{a}</code>，如：$\check{a}$</li>
+<li>数学符号，符号<code>\breve{a}</code>，如：$\breve{a}$</li>
+<li>数学符号，符号<code>\tilde{a}</code>，如：$\tilde{a}$</li>
+<li>数学符号，符号<code>\bar{a}</code>，如：$\bar{a}$</li>
+<li>矢量符号，符号<code>\vec{a}</code>，如：$\vec{a}$</li>
+<li>数学符号，符号<code>\acute{a}</code>，如：$\acute{a}$</li>
+<li>数学符号，符号<code>\grave{a}</code>，如：$\grave{a}$</li>
+<li>数学符号，符号<code>\mathring{a}</code>，如：$\mathring{a}$</li>
+<li>一阶导数符号，符号<code>\dot{a}</code>，如：$\dot{a}$</li>
+<li>二阶导数符号，符号<code>\ddot{a}</code>，如：$\ddot{a}$</li>
+<li>上箭头，符号：<code>\uparrow</code>，如：$\uparrow$</li>
+<li>上箭头，符号：<code>\Uparrow</code>，如：$\Uparrow$</li>
+<li>下箭头，符号：<code>\downarrow</code>，如：$\downarrow$</li>
+<li>下箭头，符号：<code>\Downarrow</code>，如：$\Downarrow$</li>
+<li>左箭头，符号：<code>\leftarrow</code>，如：$\leftarrow$</li>
+<li>左箭头，符号：<code>\Leftarrow</code>，如：$\Leftarrow$</li>
+<li>右箭头，符号：<code>\rightarrow</code>，如：$\rightarrow$</li>
+<li>右箭头，符号：<code>\Rightarrow</code>，如：$\Rightarrow$</li>
+<li>底端对齐的省略号，符号：<code>\ldots</code>，如：$1,2,\ldots,n$</li>
+<li>中线对齐的省略号，符号：<code>\cdots</code>，如：$x_1^2 + x_2^2 + \cdots + x_n^2$</li>
+<li>竖直对齐的省略号，符号：<code>\vdots</code>，如：$\vdots$</li>
+<li>斜对齐的省略号，符号：<code>\ddots</code>，如：$\ddots$</li>
+</ol>
+<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><table>
+<thead>
+<tr>
+<th>字母</th>
+<th>实现</th>
+<th>字母</th>
+<th>实现</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td><code>A</code></td>
+<td>α</td>
+<td><code>\alhpa</code></td>
+</tr>
+<tr>
+<td>B</td>
+<td><code>B</code></td>
+<td>β</td>
+<td><code>\beta</code></td>
+</tr>
+<tr>
+<td>Γ</td>
+<td><code>\Gamma</code></td>
+<td>γ</td>
+<td><code>\gamma</code></td>
+</tr>
+<tr>
+<td>Δ</td>
+<td><code>\Delta</code></td>
+<td>δ</td>
+<td><code>\delta</code></td>
+</tr>
+<tr>
+<td>E</td>
+<td><code>E</code></td>
+<td>ϵ</td>
+<td><code>\epsilon</code></td>
+</tr>
+<tr>
+<td>Z</td>
+<td><code>Z</code></td>
+<td>ζ</td>
+<td><code>\zeta</code></td>
+</tr>
+<tr>
+<td>H</td>
+<td><code>H</code></td>
+<td>η</td>
+<td><code>\eta</code></td>
+</tr>
+<tr>
+<td>Θ</td>
+<td><code>\Theta</code></td>
+<td>θ</td>
+<td><code>\theta</code></td>
+</tr>
+<tr>
+<td>I</td>
+<td><code>I</code></td>
+<td>ι</td>
+<td><code>\iota</code></td>
+</tr>
+<tr>
+<td>K</td>
+<td><code>K</code></td>
+<td>κ</td>
+<td><code>\kappa</code></td>
+</tr>
+<tr>
+<td>Λ</td>
+<td><code>\Lambda</code></td>
+<td>λ</td>
+<td><code>\lambda</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td><code>M</code></td>
+<td>μ</td>
+<td><code>\mu</code></td>
+</tr>
+<tr>
+<td>N</td>
+<td><code>N</code></td>
+<td>ν</td>
+<td><code>\nu</code></td>
+</tr>
+<tr>
+<td>Ξ</td>
+<td><code>\Xi</code></td>
+<td>ξ</td>
+<td><code>\xi</code></td>
+</tr>
+<tr>
+<td>O</td>
+<td><code>O</code></td>
+<td>ο</td>
+<td><code>\omicron</code></td>
+</tr>
+<tr>
+<td>Π</td>
+<td><code>\Pi</code></td>
+<td>π</td>
+<td><code>\pi</code></td>
+</tr>
+<tr>
+<td>P</td>
+<td><code>P</code></td>
+<td>ρ</td>
+<td><code>\rho</code></td>
+</tr>
+<tr>
+<td>Σ</td>
+<td><code>\Sigma</code></td>
+<td>σ</td>
+<td><code>\sigma</code></td>
+</tr>
+<tr>
+<td>T</td>
+<td><code>T</code></td>
+<td>τ</td>
+<td><code>\tau</code></td>
+</tr>
+<tr>
+<td>Υ</td>
+<td><code>\Upsilon</code></td>
+<td>υ</td>
+<td><code>\upsilon</code></td>
+</tr>
+<tr>
+<td>Φ</td>
+<td><code>\Phi</code></td>
+<td>ϕ</td>
+<td><code>\phi</code></td>
+</tr>
+<tr>
+<td>X</td>
+<td><code>X</code></td>
+<td>χ</td>
+<td><code>\chi</code></td>
+</tr>
+<tr>
+<td>Ψ</td>
+<td><code>\Psi</code></td>
+<td>ψ</td>
+<td><code>\psi</code></td>
+</tr>
+<tr>
+<td>Ω</td>
+<td><code>\v</code></td>
+<td>ω</td>
+<td><code>\omega</code></td>
+</tr>
+</tbody></table>
+<p>作者：DanielGavin<br>链接：<a href="https://www.jianshu.com/p/e74eb43960a1" target="_blank" rel="noopener">https://www.jianshu.com/p/e74eb43960a1</a><br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</div><iframe src="/donate/?AliPayQR=/img/alipay_me.png&amp;WeChatQR=/img/wechat_me.png&amp;GitHub=https://github.com/charjindev/donate-page&amp;BTCQR=null&amp;BTCKEY=null&amp;PayPal=null" style="overflow-x:hidden; overflow-y:hidden; border:0xp none #fff; min-height:240px; width:100%;" frameborder="0" scrolling="no"></iframe><div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>Char Jin</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="/2020/02/07/note-markdown-mathformula/">https://blog.charjin.top/2020/02/07/note-markdown-mathformula/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</li></ul></div><br><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a class="article-share-link" data-url="https://blog.charjin.top/2020/02/07/note-markdown-mathformula/" data-id="clhhn3hs4001ztbrlgdlefw6e" data-qrcode="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3ay47DIAwF0Pz/T3e2laqm15iMBJysqr7CyeIKY19XfL3ervd3Pj+9v5L//PzmtAsDA2NZRnLjfEFjvLEHhIGBcRrjW4Ldf+c+KKsBek/6sWYMDAyMeIn30Tnr8WFgYGB0/i4PzfuNIAYGBsZYEVvd9o0Vxo/X4hgYGAsy8vLy/18/0t/AwMBYitE5uM9DsNqkLK8KAwNja0YecEkLM28SJNvBagsBAwNjV0ZyWD+236xGcGsNGBgYWzOSKJx13FYdy8iP4TAwME5jJAdh1WJ1rIVZbgBgYGBszYhGGYKmY+dxVKMZAwPjTEY+ZtE/+h/DDJayGBgYWzD6m7/8t0nDYPBgDgMD4zBGHotJNCcLrbYQfnRiMTAwNmLkJWJ++05YVwvpa+zHGBgYCzKq46Q5rxq11btgYGCcwOi0B6rhWx2eGBuTxcDAOIfxiq/8KK1TsuaPGAMDY29GdftVHeHqtxCipiYGBsYBjDxk85I1LzgnDIdhYGBsyhiscacOTOTx/fXfMDAwDmDcj1N0tmudgYzkNQYGxjmMPBxnFbSdWL/yJMbAwFic8SpeYyMa1YmIcjGMgYGxNaMTdmObuU6Z2i+2MTAw1mVUD/eTCO60CqplMwYGxjmMJ/K7+iBaTQgMDAyM4gBE/mkyxlGYFsHAwMAoHqtV26L5A5oQuBgYGAsyOs2AfNirM6gxrRbHwMBYkFFtMT4+/fFcUxMDA2M9xh8xYLwqoeaDaQAAAABJRU5ErkJggg==">分享</a><div class="tags"><a href="/tags/Markdown/">Markdown</a></div><div class="post-nav"><a class="pre" href="/2020/02/07/algo-dp-LIS/">【算法】动态规划 - 最长不下降子序列（LIS）</a><a class="next" href="/2020/02/05/algo-binary-search/">【算法】二分查找详细总结 BinarySearch</a></div><div id="vcomment"></div><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var notify = 'true' ? true : false;
+var verify = 'true' ? true : false;
+var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+window.valine = new Valine({
+  el:'#vcomment',
+  notify:notify,
+  verify:verify,
+  appId:'t4DnKL6Wzc2cJnKlPvgi1mFm-gzGzoHsz',
+  appKey:'wRCuQw2SaMNzhBbLJClaYxn4',
+  placeholder:'Just leave your comment, Haha...',
+  avatar:'mm',
+  guest_info:guest_info,
+  pageSize:'10'
+})</script></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><div class="search-form"><input id="local-search-input" placeholder="Search" type="text" name="q" results="0"/><div id="local-search-result"></div></div></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">39</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/">开发框架</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a><span class="category-list-count">46</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">程序设计</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E7%AC%94%E8%AE%B0/">编程笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%BD%AF%E6%8A%80%E8%83%BD/">软技能</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 15px;">树状数组</a> <a href="/tags/%E6%9F%A5%E6%89%BE/" style="font-size: 15px;">查找</a> <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" style="font-size: 15px;">二分查找</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 15px;">二叉树</a> <a href="/tags/%E9%80%92%E5%BD%92%E6%B1%82%E8%A7%A3/" style="font-size: 15px;">递归求解</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" style="font-size: 15px;">二叉搜索树</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 15px;">动态规划</a> <a href="/tags/%E6%9C%80%E9%95%BF%E4%B8%8D%E4%B8%8B%E9%99%8D%E5%AD%90%E5%BA%8F%E5%88%97/" style="font-size: 15px;">最长不下降子序列</a> <a href="/tags/PAT/" style="font-size: 15px;">PAT</a> <a href="/tags/%E7%BC%96%E7%A8%8B/" style="font-size: 15px;">编程</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 15px;">生活</a> <a href="/tags/%E6%A0%91/" style="font-size: 15px;">树</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 15px;">并查集</a> <a href="/tags/C-C/" style="font-size: 15px;">C/C++</a> <a href="/tags/OJ/" style="font-size: 15px;">OJ</a> <a href="/tags/%E6%A0%88/" style="font-size: 15px;">栈</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 15px;">队列</a> <a href="/tags/%E5%A0%86%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">堆排序</a> <a href="/tags/%E5%A0%86/" style="font-size: 15px;">堆</a> <a href="/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/" style="font-size: 15px;">版本控制</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 15px;">博客</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/%E7%AB%99%E7%82%B9url%E8%87%AA%E5%8A%A8%E6%8E%A8%E9%80%81/" style="font-size: 15px;">站点url自动推送</a> <a href="/tags/Kotlin/" style="font-size: 15px;">Kotlin</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" style="font-size: 15px;">编程语言</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Markdown/" style="font-size: 15px;">Markdown</a> <a href="/tags/%E7%B4%A0%E6%95%B0%E5%88%A4%E6%96%AD/" style="font-size: 15px;">素数判断</a> <a href="/tags/%E6%A8%A1%E6%8B%9F/" style="font-size: 15px;">模拟</a> <a href="/tags/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2/" style="font-size: 15px;">进制转换</a> <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" style="font-size: 15px;">排序算法</a> <a href="/tags/%E7%AE%80%E5%8D%95%E6%8E%92%E5%BA%8F/" style="font-size: 15px;">简单排序</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95/" style="font-size: 15px;">最短路径算法</a> <a href="/tags/Dijkstra%E7%AE%97%E6%B3%95/" style="font-size: 15px;">Dijkstra算法</a> <a href="/tags/%E6%9C%89%E5%BA%8F%E5%BA%8F%E5%88%97%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" style="font-size: 15px;">有序序列的中位数</a> <a href="/tags/Dijkstra%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95/" style="font-size: 15px;">Dijkstra最短路径算法</a> <a href="/tags/DFS/" style="font-size: 15px;">DFS</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 15px;">深度优先搜索</a> <a href="/tags/%E5%89%AA%E6%9E%9D/" style="font-size: 15px;">剪枝</a> <a href="/tags/BFS/" style="font-size: 15px;">BFS</a> <a href="/tags/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" style="font-size: 15px;">广度优先搜索</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E9%97%AE%E9%A2%98/" style="font-size: 15px;">模拟问题</a> <a href="/tags/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 15px;">平衡二叉树</a> <a href="/tags/AVL/" style="font-size: 15px;">AVL</a> <a href="/tags/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 15px;">完全二叉树</a> <a href="/tags/%E5%AE%8C%E5%85%A8%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" style="font-size: 15px;">完全平衡二叉树</a> <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E5%88%A4%E5%88%AB/" style="font-size: 15px;">红黑树的判别</a> <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%80%E4%BD%8E%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" style="font-size: 15px;">二叉树最低公共祖先</a> <a href="/tags/LCA/" style="font-size: 15px;">LCA</a> <a href="/tags/%E5%A0%86%E7%9A%84%E5%88%A4%E5%AE%9A/" style="font-size: 15px;">堆的判定</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" style="font-size: 15px;">字符串处理</a> <a href="/tags/PTA/" style="font-size: 15px;">PTA</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91Prime%E7%AE%97%E6%B3%95/" style="font-size: 15px;">最小生成树Prime算法</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91Kruskal%E7%AE%97%E6%B3%95/" style="font-size: 15px;">最小生成树Kruskal算法</a> <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" style="font-size: 15px;">贪心算法</a> <a href="/tags/%E5%9B%A2%E4%BD%93%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%A9%E6%A2%AF%E8%B5%9B/" style="font-size: 15px;">团体程序设计天梯赛</a> <a href="/tags/map/" style="font-size: 15px;">map</a> <a href="/tags/%E5%89%8D%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 15px;">前缀表达式</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%A7%A3%E6%9E%90/" style="font-size: 15px;">字符串解析</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/openpyxl/" style="font-size: 15px;">openpyxl</a> <a href="/tags/tkinter/" style="font-size: 15px;">tkinter</a> <a href="/tags/Spring/" style="font-size: 15px;">Spring</a> <a href="/tags/JUnit/" style="font-size: 15px;">JUnit</a> <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" style="font-size: 15px;">单元测试</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/05/06/linux/screen/">Screen 命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/22/linux/docker-installation/">Docker 安装与配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/04/18/linux/terminal-proxy/">Linux 终端开启代理</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/31/linux/apt-errors/">Ubuntu 中的 apt 错误</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/28/linux/switch-intel-nvidia-graphics-card/">How To Switch Between Intel and Nvidia Graphics Card on Ubuntu</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/03/05/linux/ssh-disconnect-solution/">SSH 自动断连问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/02/27/linux/create-systemd-service/">Linux 中创建系统服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/28/linux/linux-firewall/">Linux 设置防火墙</a></li><li class="post-list-item"><a class="post-list-link" href="/2023/01/17/linux/ssh-jump/">SSH 跳板服务器连接</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/12/01/linux/oh-my-zsh/">Linux终端配置 - ohmyzsh</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://pintia.cn" title="拼题A" target="_blank">拼题A</a><ul></ul><a href="https://kotlinlang.org" title="Kotlin" target="_blank">Kotlin</a><ul></ul><a href="https://www.patest.cn" title="PAT" target="_blank">PAT</a><ul></ul><a href="https://en.cppreference.com" title="C++ Reference" target="_blank">C++ Reference</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2023 <a href="/." rel="nofollow">Zhichao's Blog | </a><a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备18033074号-1</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/search.js?v=0.0.0"></script><script>var search_path = 'search.xml';
+if (search_path.length == 0) {
+   search_path = 'search.xml';
+}
+var path = '/' + search_path;
+searchFunc(path, 'local-search-input', 'local-search-result');
+</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/1.7.1/viz.js"></script><script>String.prototype.replaceAll = function(search, replacement) {
+  var target = this;
+  return target.split(search).join(replacement);
+};
+
+let vizObjects = document.querySelectorAll('.graphviz')
+
+for (let item of vizObjects) {
+  let svg = undefined
+  try {
+    svg = Viz(item.textContent.replaceAll('–', '--'), 'svg')
+  } catch(e) {
+    svg = `<pre class="error">${e}</pre>`
+  }
+  item.outerHTML = svg
+}</script></div></body></html>
